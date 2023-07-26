@@ -1,0 +1,22 @@
+{
+    "name": "alirexa/curlreq",
+    "description": "A simple and easy php class for send curl request",
+    "keywords": ["curl", "http","request"],
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Curlreq\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alireza Rajabzadeh"
+        }
+    ],
+    
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.4"
+    }
+}
