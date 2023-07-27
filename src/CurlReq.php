@@ -149,7 +149,6 @@ class CurlReq
 
     private function parseResponse()
     {
-
         $this->errors = curl_error($this->curl_handler);
         $this->error_number = curl_errno($this->curl_handler);
 
@@ -164,5 +163,19 @@ class CurlReq
         $this->response_headers = substr($this->curl_result, 0, $header_size);
         $this->response = substr($this->curl_result, $header_size);
         return $this;
+    }
+
+    function responseInArray()  {
+
+        return [
+            "http_code"=>$this->response_httpcode,
+            "headers"=>$this->response_headers,
+            "response" => $this->response,
+            "raw_response" => $this->curl_result,
+            "errors" => $this->errors,
+            "error_number" => $this->error_number,
+            
+        ];
+        
     }
 }

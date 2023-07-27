@@ -48,6 +48,10 @@ $request->delete();
 
 
 
+$request->response_headers;
+$request->response;
+$request->errors;
+$request->error_number;
 
 // $x->setUrl("https://httpbin.org/post")->json()->setData($data);
 // $x->setUrl("https://httpbin.org/get")->json()->setData($data);

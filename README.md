@@ -42,3 +42,20 @@ use get,post,put,delete method base on url accepted method :
     $request->post();
     $request->put();
     $request->delete();
+
+To get response details of request use below methods : 
+
+    $request->response_httpcode; //get requesthttp code
+    $request->response_headers; // get request headers
+    $request->response; //get parsed responsed
+    $request->curl_result; // get curl raw response
+    $request->errors; // get error if exist
+    $request->error_number ; get error number if exis
+
+Or youcan get all this in one array by call responseInArray() ;
+
+    $request->responseInArray;
+
+Let me know if something works wrong :
+ 
+    Orginalireza@gmail.com
