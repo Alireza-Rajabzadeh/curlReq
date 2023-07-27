@@ -52,10 +52,10 @@ To get response details of request use below methods :
     $request->errors; // get error if exist
     $request->error_number ; get error number if exis
 
-Or youcan get all this in one array by call responseInArray() ;
+Or you can get all this in one array by call responseInArray() ;
 
     $request->responseInArray;
 
-Let me know if something works wrong :
- 
-    Orginalireza@gmail.com
+Let me know if something works wrong by send me an email: Orginalireza@gmail.com
+
+thanks
