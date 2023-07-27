@@ -31,7 +31,7 @@ class CurlReq
         $this->requestInit();
     }
 
-    public function requestInit()
+    private function requestInit()
     {
         $this->curl_handler = curl_init();
         curl_setopt($this->curl_handler, CURLOPT_HEADER, true);
@@ -60,9 +60,9 @@ class CurlReq
         $this->request_headers = array_merge($this->request_headers, $headers);
         return $this;
     }
-    public function setTimeOut(int $secound)
+    public function setTimeOut(int $Second)
     {
-        $this->curl_timeout = $secound;
+        $this->curl_timeout = $Second;
         curl_setopt($this->curl_handler, CURLOPT_TIMEOUT, $this->curl_timeout);
         return $this;
     }

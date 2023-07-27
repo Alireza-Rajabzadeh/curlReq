@@ -17,11 +17,38 @@ $data = array(
 // die();
 
 
+#init curl with this : 
+$request = new CurlReq();
+# To set url use setUrl("your_url") : 
+$request->setUrl("https://httpbin.org/delete");
 
-$x = new CurlReq();
+#if you your requestis json call data will json encoded and json headers add: 
+$request->json();
 
-// $x->setUrl("https://httpbin.org/put")->json()->setData($data);
-$x->setUrl("https://httpbin.org/delete")->json()->setData($data);
+#add data to request (array,by call json() function data will send json encoded): 
+$request->setData($data);
+
+
+#add your headers by call setHeaders(): 
+$request->setHeaders($your_array_headers);
+
+#change your request time out by call setTimeOut() in Second: 
+$request->setTimeOut($Second);
+
+#you can trun Exception on or off by call Exception(false or true)
+#on true exception will throw and on false will not default is false : 
+$request->Exception(false); # exception off
+$request->Exception(true); # exception on
+
+#use get,post,put,delete method base on url accepted method
+$request->get();
+$request->post();
+$request->put();
+$request->delete();
+
+
+
+
 // $x->setUrl("https://httpbin.org/post")->json()->setData($data);
 // $x->setUrl("https://httpbin.org/get")->json()->setData($data);
 // var_dump($x);
