@@ -32,11 +32,15 @@ $request->setData($data);
 
 
 
+
+
+
+
 // $x->setUrl("https://httpbin.org/post")->json()->setData($data);
 // $x->setUrl("https://httpbin.org/get")->json()->setData($data);
 // var_dump($x);
-$request->delete();
+$request->post();
 // $x->sendGet();
 
 // var_dump($x->response_headers);
-var_dump($x->responseInArray());
+var_dump($request->responseInArray());

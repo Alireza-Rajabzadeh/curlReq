@@ -142,8 +142,9 @@ class CurlReq
         );
 
         $this->curl_result = curl_exec($this->curl_handler);
-        curl_close($this->curl_handler);
         $this->parseResponse();
+        curl_close($this->curl_handler);
+
         return $this;
     }
 
@@ -165,17 +166,17 @@ class CurlReq
         return $this;
     }
 
-    function responseInArray()  {
+    function responseInArray()
+    {
 
         return [
-            "http_code"=>$this->response_httpcode,
-            "headers"=>$this->response_headers,
+            "http_code" => $this->response_httpcode,
+            "headers" => $this->response_headers,
             "response" => $this->response,
             "raw_response" => $this->curl_result,
             "errors" => $this->errors,
             "error_number" => $this->error_number,
-            
+
         ];
-        
     }
 }
