@@ -54,7 +54,7 @@ To get response details of request use below methods :
 
 Or you can get all in one array by call responseInArray() ;
 
-    $request->responseInArray;
+    $request->responseInArray();
 
 Let me know if something works wrong by send me an email: Orginalireza@gmail.com
 
