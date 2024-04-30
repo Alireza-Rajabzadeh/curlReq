@@ -44,9 +44,6 @@ class CurlReq
         $this->url = $url;
         return $this;
     }
-    public function setDefaultHeaders()
-    {
-    }
 
     public function Exception(bool $exeption_status)
     {
@@ -60,12 +57,16 @@ class CurlReq
         $this->request_headers = array_merge($this->request_headers, $headers);
         return $this;
     }
+
+
     public function setTimeOut(int $Second)
     {
         $this->curl_timeout = $Second;
         curl_setopt($this->curl_handler, CURLOPT_TIMEOUT, $this->curl_timeout);
         return $this;
     }
+
+
     public function setData(array $data)
     {
         $this->request_data = array_merge($this->request_data, $data);
@@ -125,6 +126,17 @@ class CurlReq
         return $this->excuteRequest();
     }
 
+    public function setMethod(string $method)
+    {
+        curl_setopt(
+            $this->curl_handler,
+            CURLOPT_CUSTOMREQUEST,
+            strtoupper($method)
+        );
+
+        return $this->excuteRequest();
+    }
+
     public function excuteRequest()
     {
         curl_setopt($this->curl_handler, CURLOPT_URL, $this->url);
@@ -161,7 +173,7 @@ class CurlReq
         $this->response_httpcode = curl_getinfo($this->curl_handler, CURLINFO_HTTP_CODE);
 
         $header_size = curl_getinfo($this->curl_handler, CURLINFO_HEADER_SIZE);
-        $this->response_headers = substr($this->curl_result, 0, $header_size);
+        $this->response_headers =  explode(":", substr($this->curl_result, 0, $header_size));
         $this->response = substr($this->curl_result, $header_size);
         return $this;
     }
